@@ -1,3 +1,20 @@
 <resources>
-    <style name="Theme.SmartPantry" parent="Theme.AppCompat.Light.DarkActionBar" />
+    <style name="Theme.SmartPantry" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/forest</item>
+        <item name="colorPrimaryDark">@color/forest</item>
+        <item name="colorAccent">@color/forest</item>
+        <item name="android:windowBackground">@color/cream</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <style name="Heading">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+    <style name="Body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/muted</item>
+    </style>
 </resources>
