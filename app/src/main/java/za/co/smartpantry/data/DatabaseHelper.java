@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (quantity == null || quantity.signum() <= 0 || quantity.compareTo(new BigDecimal("1000000000")) > 0
                 || quantity.stripTrailingZeros().scale() > 6)
             throw new IllegalArgumentException("Enter a quantity above zero, up to 1 billion, with at most 6 decimal places.");
-        if (unit == null || !List.of("g", "kg", "ml", "l", "tsp", "tbsp", "item", "piece", "whole").contains(unit))
+        if (unit == null || !PantryValidation.UNITS.contains(unit))
             throw new IllegalArgumentException("Select a supported unit.");
         String date = expiry == null || expiry.trim().isEmpty() ? null : expiry.trim();
         if (date != null) LocalDate.parse(date);
