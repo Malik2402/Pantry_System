@@ -17,6 +17,9 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.Holder> {
     }
     private final List<PantryItem> items = new ArrayList<>();
     private final Actions actions;
+    private boolean expiryIndicators;
+
+    public void setExpiryIndicators(boolean enabled) { expiryIndicators = enabled; }
 
     public PantryAdapter(Actions actions) { this.actions = actions; }
 
@@ -35,6 +38,12 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.Holder> {
         holder.name.setText(item.name);
         holder.amount.setText(item.amountLabel());
         holder.expiry.setText(item.expiry == null ? "No expiry date" : "Expiry: " + item.expiry);
+        if (expiryIndicators && item.expiry != null) {
+            java.time.LocalDate date = java.time.LocalDate.parse(item.expiry);
+            java.time.LocalDate today = java.time.LocalDate.now();
+            if (date.isBefore(today)) holder.expiry.setText("Expired · " + item.expiry);
+            else if (!date.isAfter(today.plusDays(7))) holder.expiry.setText("Expiring soon · " + item.expiry);
+        }
         holder.itemView.findViewById(R.id.edit_item).setContentDescription("Edit " + item.name);
         holder.itemView.findViewById(R.id.delete_item).setContentDescription("Delete " + item.name);
         holder.itemView.findViewById(R.id.edit_item).setOnClickListener(view -> actions.edit(item));

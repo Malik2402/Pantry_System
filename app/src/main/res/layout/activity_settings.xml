@@ -1,0 +1,11 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Make it yours" style="@style/Heading" />
+<androidx.appcompat.widget.SwitchCompat android:id="@+id/expiry_switch" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="64dp" android:layout_marginTop="20dp" android:text="Expiry indicators" android:textSize="18sp" android:paddingVertical="12dp" />
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Highlight ingredients that expire within 7 days or have passed their expiry date. Indicators appear in your pantry list." style="@style/Body" />
+<TextView android:id="@+id/settings_feedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" style="@style/Body" android:accessibilityLiveRegion="polite" />
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="About Smart Pantry Manager" android:textSize="20sp" android:textStyle="bold" />
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/student_details" style="@style/Body" />
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Track your ingredients and find recipes you can make with what you have." style="@style/Body" />
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:autoLink="web" android:text="https://github.com/Malik2402/Pantry_System" style="@style/Body" />
+</LinearLayout></ScrollView>

@@ -38,6 +38,7 @@ public class PantryActivity extends BaseActivity implements PantryAdapter.Action
     private void refresh() {
         try {
             List<PantryItem> items = database.getPantryItems();
+            adapter.setExpiryIndicators(new za.co.smartpantry.data.AppPreferences(this).expiryIndicatorsEnabled());
             adapter.submit(items);
             ((TextView) findViewById(R.id.pantry_summary)).setText(items.size() + " pantry entries · stored on this device");
             findViewById(R.id.pantry_empty).setVisibility(items.isEmpty() ? View.VISIBLE : View.GONE);
