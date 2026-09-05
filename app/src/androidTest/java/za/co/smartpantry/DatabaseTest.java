@@ -66,4 +66,21 @@ public class DatabaseTest {
                 () -> helper.addPantryItem("Rice", BigDecimal.ONE, "g", "2026-02-30"));
         assertTrue(helper.getPantryItems().isEmpty());
     }
+
+    @Test public void twentyRecipesAreSeededOnceWithCompleteIngredients() {
+        assertEquals(20, helper.getRecipes().size());
+        for (za.co.smartpantry.model.Recipe recipe : helper.getRecipes()) {
+            assertFalse(recipe.ingredients.isEmpty());
+            assertFalse(recipe.steps.trim().isEmpty());
+            for (za.co.smartpantry.model.Ingredient ingredient : recipe.ingredients) {
+                assertTrue(ingredient.quantity.signum() > 0);
+                assertFalse(ingredient.unit.isEmpty());
+            }
+        }
+        helper.close();
+        helper = new DatabaseHelper(context, "pantry_test.db");
+        assertEquals(20, helper.getRecipes().size());
+        assertEquals("Tomato and onion salad", helper.getRecipe(1).name);
+        assertNull(helper.getRecipe(9999));
+    }
 }

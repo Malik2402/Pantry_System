@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import za.co.smartpantry.model.PantryItem;
+import za.co.smartpantry.model.Recipe;
+import za.co.smartpantry.model.Ingredient;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
@@ -17,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public DatabaseHelper(Context context, String databaseName) {
-        super(context.getApplicationContext(), databaseName, null, 1);
+        super(context.getApplicationContext(), databaseName, null, 2);
     }
 
     @Override public void onConfigure(SQLiteDatabase db) {
@@ -36,15 +38,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "name TEXT NOT NULL CHECK(length(trim(name)) > 0),"
                 + "quantity TEXT NOT NULL CHECK(CAST(quantity AS REAL) > 0), unit TEXT NOT NULL)");
         db.execSQL("CREATE INDEX recipe_ingredient_parent ON recipe_ingredients(recipe_id)");
+        RecipeSeeder.seed(db);
     }
 
     @Override public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        throw new IllegalStateException("A database migration is required.");
+        if (oldVersion < 2) RecipeSeeder.seed(db);
     }
 
     public long addPantryItem(String name, BigDecimal quantity, String unit, String expiry) {
         return getWritableDatabase().insertOrThrow("pantry_items", null,
                 pantryValues(name, quantity, unit, expiry));
+    }
+
+    public List<Recipe> getRecipes() {
+        List<Recipe> recipes = new ArrayList<>();
+        try (Cursor cursor = getReadableDatabase().query("recipes", null, null, null,
+                null, null, "name COLLATE NOCASE")) {
+            while (cursor.moveToNext()) recipes.add(readRecipe(cursor));
+        }
+        return recipes;
+    }
+
+    public Recipe getRecipe(long id) {
+        try (Cursor cursor = getReadableDatabase().query("recipes", null, "id = ?",
+                new String[]{Long.toString(id)}, null, null, null)) {
+            return cursor.moveToFirst() ? readRecipe(cursor) : null;
+        }
+    }
+
+    private Recipe readRecipe(Cursor cursor) {
+        long id = cursor.getLong(cursor.getColumnIndexOrThrow("id"));
+        List<Ingredient> ingredients = new ArrayList<>();
+        try (Cursor parts = getReadableDatabase().query("recipe_ingredients", null, "recipe_id = ?",
+                new String[]{Long.toString(id)}, null, null, "id")) {
+            while (parts.moveToNext()) ingredients.add(new Ingredient(
+                    parts.getString(parts.getColumnIndexOrThrow("name")),
+                    new BigDecimal(parts.getString(parts.getColumnIndexOrThrow("quantity"))),
+                    parts.getString(parts.getColumnIndexOrThrow("unit"))));
+        }
+        return new Recipe(id, cursor.getString(cursor.getColumnIndexOrThrow("name")),
+                cursor.getString(cursor.getColumnIndexOrThrow("steps")), ingredients);
     }
 
     public boolean updatePantryItem(long id, String name, BigDecimal quantity, String unit, String expiry) {
