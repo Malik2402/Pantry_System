@@ -59,4 +59,5 @@
     <string name="home_expiry_days">%1$s expires in %2$d days</string>
     <string name="home_expiry_past">%1$s is past its expiry date</string>
     <string name="home_load_error">Could not load your pantry. Reopen this screen to try again.</string>
+    <string name="recipe_match_summary">%1$d of %2$d recipes match</string>
 </resources>

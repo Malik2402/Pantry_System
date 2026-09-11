@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public DatabaseHelper(Context context, String databaseName) {
-        super(context.getApplicationContext(), databaseName, null, 2);
+        super(context.getApplicationContext(), databaseName, null, 3);
     }
 
     @Override public void onConfigure(SQLiteDatabase db) {
@@ -43,6 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 2) RecipeSeeder.seed(db);
+        else if (oldVersion < 3) RecipeSeeder.seedAdditional(db);
     }
 
     public long addPantryItem(String name, BigDecimal quantity, String unit, String expiry) {
