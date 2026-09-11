@@ -1,8 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="20dp">
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Use what you have." style="@style/Heading" />
-<TextView android:id="@+id/pantry_summary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" style="@style/Body" />
-<Button android:id="@+id/add_ingredient" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Add ingredient" />
-<TextView android:id="@+id/pantry_feedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" android:paddingVertical="8dp" style="@style/Body" android:visibility="gone" />
-<TextView android:id="@+id/pantry_empty" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="24dp" android:text="Your pantry is empty.\nAdd your first ingredient to get started." style="@style/Body" />
-<androidx.recyclerview.widget.RecyclerView android:id="@+id/pantry_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false" android:paddingBottom="12dp" />
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout android:id="@+id/pantry_panel" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="20dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_use_what_you_have" style="@style/Heading" />
+    <TextView android:id="@+id/pantry_summary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" style="@style/Body" />
+    <Button android:id="@+id/add_ingredient" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/ui_add_ingredient" />
+    <TextView android:id="@+id/pantry_feedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" android:paddingVertical="8dp" style="@style/Body" android:visibility="gone" />
+    <TextView android:id="@+id/pantry_empty" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="24dp" android:text="@string/ui_your_pantry_is_empty_nadd_your_first_ingredient_to_get_started" style="@style/Body" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/pantry_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false" android:paddingBottom="12dp" />
 </LinearLayout>
+
+<include layout="@layout/view_home" />
+</FrameLayout>
