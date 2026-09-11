@@ -38,10 +38,11 @@ public class SuggestionsActivity extends BaseActivity {
             List<PantryItem> pantry = database.getPantryItems();
             List<Recipe> matches = new ArrayList<>();
             RecipeMatcher matcher = new RecipeMatcher();
-            for (Recipe recipe : database.getRecipes())
+            List<Recipe> recipes = database.getRecipes();
+            for (Recipe recipe : recipes)
                 if (matcher.matches(recipe, pantry)) matches.add(recipe);
             adapter.submit(matches);
-            ((TextView) findViewById(R.id.recipe_summary)).setText(matches.size() + " of 20 recipes match");
+            ((TextView) findViewById(R.id.recipe_summary)).setText(getString(R.string.recipe_match_summary, matches.size(), recipes.size()));
             findViewById(R.id.recipes_empty).setVisibility(matches.isEmpty() ? View.VISIBLE : View.GONE);
         } catch (SQLException exception) {
             adapter.submit(Collections.emptyList());

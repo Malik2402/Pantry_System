@@ -67,6 +67,70 @@ public final class RecipeSeeder {
         add(db, 20, "Roasted sweet potato",
                 "1. Heat the oven to 200°C.\n2. Cut the sweet potato into small wedges and coat with olive oil.\n3. Roast for 25–35 minutes, turning once, until tender.",
                 new String[]{"sweet potato|300|g", "olive oil|1|tbsp"});
+        seedAdditional(db);
+    }
+
+    static void seedAdditional(SQLiteDatabase db) {
+        add(db, 21, "Garlic bread",
+                "1. Finely chop the garlic and mix it into softened butter.\n2. Spread over the bread.\n3. Toast under a grill until the edges are golden and the butter is bubbling.",
+                new String[]{"bread|2|piece", "butter|15|g", "garlic|5|g"});
+        add(db, 22, "French toast",
+                "1. Beat the egg with the milk in a shallow dish.\n2. Dip both sides of each bread piece into the mixture.\n3. Melt the butter in a pan and cook the bread on both sides until golden and the egg coating is fully set.",
+                new String[]{"bread|2|piece", "egg|1|item", "milk|60|ml", "butter|10|g"});
+        add(db, 23, "Apple cinnamon oats",
+                "1. Core and finely chop the apple.\n2. Combine all ingredients in a saucepan.\n3. Simmer gently for 7 minutes, stirring, until the oats are creamy and the apple has softened.",
+                new String[]{"oats|50|g", "milk|250|ml", "apple|1|item", "ground cinnamon|1|g"});
+        add(db, 24, "Peanut butter oats",
+                "1. Combine the oats and milk in a saucepan.\n2. Simmer gently for 5 minutes, stirring until thick.\n3. Stir in the peanut butter until evenly mixed and serve.",
+                new String[]{"oats|50|g", "milk|250|ml", "peanut butter|20|g"});
+        add(db, 25, "Cocoa banana smoothie",
+                "1. Peel and slice the banana.\n2. Blend the banana, milk and cocoa powder until smooth.\n3. Pour into a glass and serve.",
+                new String[]{"banana|1|item", "milk|250|ml", "cocoa powder|5|g"});
+        add(db, 26, "Cucumber yoghurt dip",
+                "1. Grate the cucumber and squeeze out excess liquid.\n2. Finely chop the garlic.\n3. Mix the cucumber, yoghurt, lemon juice and garlic, then serve.",
+                new String[]{"cucumber|1|item", "plain yoghurt|150|g", "lemon juice|10|ml", "garlic|3|g"});
+        add(db, 27, "Avocado lemon toast",
+                "1. Toast the bread.\n2. Remove the avocado skin and stone, then mash the flesh with the lemon juice.\n3. Spread over the toast and serve.",
+                new String[]{"bread|2|piece", "avocado|1|item", "lemon juice|10|ml"});
+        add(db, 28, "Tomato cheese omelette",
+                "1. Chop the tomato, grate the cheese and beat the eggs.\n2. Warm the oil in a pan and soften the tomato.\n3. Pour in the eggs and cook gently until set. Sprinkle over the cheese, fold and let the cheese melt.",
+                new String[]{"egg|2|item", "tomato|1|item", "cheese|30|g", "olive oil|5|ml"});
+        add(db, 29, "Mushroom spinach pasta",
+                "1. Boil the water and cook the pasta following its packet timing, then drain.\n2. Slice the mushrooms and finely chop the garlic. Fry the mushrooms in the oil until tender.\n3. Add garlic and spinach; stir until the spinach wilts. Toss with the pasta.",
+                new String[]{"pasta|150|g", "water|1000|ml", "mushroom|150|g", "spinach|50|g", "garlic|5|g", "olive oil|15|ml"});
+        add(db, 30, "Lemon chickpea rice",
+                "1. Drain the cooked chickpeas.\n2. Warm the oil in a pan and stir in the cumin for 30 seconds.\n3. Add the chickpeas and cooked rice. Stir until piping hot throughout, then stir in the lemon juice.",
+                new String[]{"cooked rice|200|g", "cooked chickpeas|150|g", "lemon juice|15|ml", "olive oil|10|ml", "ground cumin|2|g"});
+        add(db, 31, "Potato pea curry",
+                "1. Dice the potatoes and chop the onion. Soften the onion in the oil.\n2. Stir in the curry powder, potatoes and water. Cover and simmer until the potatoes are tender, about 20 minutes.\n3. Add the peas and simmer for 5 more minutes, uncovering to thicken the sauce.",
+                new String[]{"potato|300|g", "peas|100|g", "onion|1|item", "curry powder|5|g", "olive oil|15|ml", "water|300|ml"});
+        add(db, 32, "Black bean cheese quesadilla",
+                "1. Drain and lightly mash the cooked black beans; grate the cheese.\n2. Spread the beans and cheese over one tortilla and cover with the other.\n3. Brush a pan with the oil and cook the quesadilla on both sides until golden and hot through. Cut into wedges.",
+                new String[]{"tortilla|2|piece", "cooked black beans|150|g", "cheese|50|g", "olive oil|5|ml"});
+        add(db, 33, "Tuna lemon pasta",
+                "1. Boil the water and cook the pasta following its packet timing, then drain.\n2. Drain the canned tuna and break it into flakes.\n3. Toss the pasta with the tuna, lemon juice and olive oil; warm through and serve.",
+                new String[]{"pasta|150|g", "water|1000|ml", "canned tuna|100|g", "lemon juice|15|ml", "olive oil|10|ml"});
+        add(db, 34, "Cucumber tomato couscous",
+                "1. Bring the water to the boil. Pour it over the instant couscous, cover and leave for 5 minutes until absorbed.\n2. Fluff the couscous with a fork and let it cool slightly.\n3. Dice the cucumber and tomatoes, then toss everything together with the lemon juice and oil.",
+                new String[]{"instant couscous|100|g", "water|150|ml", "cucumber|1|item", "tomato|2|item", "lemon juice|15|ml", "olive oil|15|ml"});
+        add(db, 35, "Broccoli cheese baked potato",
+                "1. Heat the oven to 200°C. Prick the potatoes and bake until tender, about 45–60 minutes depending on size.\n2. Cut the broccoli into small florets. Simmer in the water in a covered saucepan until tender, then drain.\n3. Split the potatoes, fill with broccoli and grated cheese, and return to the oven until the cheese melts.",
+                new String[]{"potato|300|g", "broccoli|100|g", "cheese|40|g", "water|250|ml"});
+        add(db, 36, "Tomato butter bean stew",
+                "1. Chop the onion, tomatoes and garlic; drain the cooked butter beans.\n2. Soften the onion in the oil, then stir in the garlic for 1 minute.\n3. Add tomatoes, beans and water. Simmer gently for 15 minutes until hot through and thickened.",
+                new String[]{"cooked butter beans|200|g", "tomato|3|item", "onion|1|item", "garlic|5|g", "olive oil|15|ml", "water|150|ml"});
+        add(db, 37, "Honey roasted carrots",
+                "1. Heat the oven to 200°C. Cut the carrots into thin batons.\n2. Toss with the olive oil and spread on a baking tray.\n3. Roast for 20 minutes, then toss with honey and roast for 5–10 more minutes until tender.",
+                new String[]{"carrot|300|g", "olive oil|10|ml", "honey|10|ml"});
+        add(db, 38, "Peanut noodles",
+                "1. Boil the water and cook the noodles following their packet timing. Reserve a little of the cooking water, then drain.\n2. Mix peanut butter, soy sauce and lemon juice, adding reserved cooking water a spoonful at a time to make a coating sauce.\n3. Toss the noodles with the sauce and serve.",
+                new String[]{"noodles|150|g", "water|1000|ml", "peanut butter|30|g", "soy sauce|15|ml", "lemon juice|10|ml"});
+        add(db, 39, "Carrot lentil soup",
+                "1. Rinse the lentils and chop the carrot and onion.\n2. Soften the onion in the oil, then stir in the cumin.\n3. Add carrots, lentils and water. Simmer for 25 minutes until the carrots and lentils are soft. Mash lightly or serve chunky.",
+                new String[]{"carrot|200|g", "red lentils|100|g", "onion|1|item", "ground cumin|2|g", "olive oil|10|ml", "water|600|ml"});
+        add(db, 40, "Berry yoghurt bowl",
+                "1. Rinse fresh berries, or thaw frozen berries according to their packet instructions.\n2. Spoon the yoghurt into a bowl and top with berries and oats.\n3. Drizzle with honey and serve.",
+                new String[]{"mixed berries|100|g", "plain yoghurt|150|g", "oats|20|g", "honey|5|ml"});
     }
 
     private static void add(SQLiteDatabase db, long id, String name, String steps, String[] ingredients) {

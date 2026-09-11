@@ -90,7 +90,7 @@ public class AppFlowTest {
             navigate("Pantry");
             add("Olive oil", "10", "ml");
             navigate("Suggested Recipes");
-            onView(withId(R.id.recipe_summary)).check(matches(withText("0 of 20 recipes match")));
+            onView(withId(R.id.recipe_summary)).check(matches(withText("0 of 40 recipes match")));
             screenshot("14_insufficient_quantity");
             navigate("Pantry");
             onView(withContentDescription("Edit Olive oil")).perform(click());

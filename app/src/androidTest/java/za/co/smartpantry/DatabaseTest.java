@@ -67,8 +67,8 @@ public class DatabaseTest {
         assertTrue(helper.getPantryItems().isEmpty());
     }
 
-    @Test public void twentyRecipesAreSeededOnceWithCompleteIngredients() {
-        assertEquals(20, helper.getRecipes().size());
+    @Test public void fortyRecipesAreSeededOnceWithCompleteIngredients() {
+        assertEquals(40, helper.getRecipes().size());
         for (za.co.smartpantry.model.Recipe recipe : helper.getRecipes()) {
             assertFalse(recipe.ingredients.isEmpty());
             assertFalse(recipe.steps.trim().isEmpty());
@@ -79,7 +79,7 @@ public class DatabaseTest {
         }
         helper.close();
         helper = new DatabaseHelper(context, "pantry_test.db");
-        assertEquals(20, helper.getRecipes().size());
+        assertEquals(40, helper.getRecipes().size());
         assertEquals("Tomato and onion salad", helper.getRecipe(1).name);
         assertNull(helper.getRecipe(9999));
     }

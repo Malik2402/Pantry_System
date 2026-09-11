@@ -30,4 +30,7 @@ if($LASTEXITCODE -ne 0 -or ($homeResult -join "`n") -notmatch 'OK \(2 tests\)'){
 New-Item -ItemType Directory -Force -Path docs/evidence/home-review | Out-Null
 & $adb -s $Serial pull /sdcard/Android/data/za.co.smartpantry/files/home-review/. docs/evidence/home-review
 if($LASTEXITCODE -ne 0){throw 'Home screenshot copy failed.'}
-Write-Output 'Verified nine existing device tests, two home tests, a separate process-reopen test and screenshots.'
+$recipeResult=& $adb -s $Serial shell am instrument -w -e class 'za.co.smartpantry.RecipeUpgradeTest' za.co.smartpantry.test/androidx.test.runner.AndroidJUnitRunner 2>&1
+[IO.File]::WriteAllText((Join-Path $PWD 'docs/evidence/recipe-upgrade-tests.txt'),($recipeResult -join "`n").TrimEnd()+"`n")
+if($LASTEXITCODE -ne 0 -or ($recipeResult -join "`n") -notmatch 'OK \(4 tests\)'){throw 'Recipe upgrade tests failed.'}
+Write-Output 'Verified fifteen device tests, a separate process-reopen test and screenshots.'
