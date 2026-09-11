@@ -1,17 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
-<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Stock your pantry" style="@style/Heading" />
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Add the amount you have at home. Only the expiry date is optional." style="@style/Body" />
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:labelFor="@+id/ingredient_name" android:text="Ingredient name" style="@style/Body" />
-<EditText android:id="@id/ingredient_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="textCapSentences" android:maxLength="80" android:hint="e.g. Tomato" android:importantForAutofill="no" />
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_quantity" android:text="Quantity" style="@style/Body" />
-<EditText android:id="@id/ingredient_quantity" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="numberDecimal" android:maxLength="20" android:hint="e.g. 2.5" android:importantForAutofill="no" />
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_unit" android:text="Unit" style="@style/Body" />
-<Spinner android:id="@id/ingredient_unit" android:layout_width="match_parent" android:layout_height="48dp" />
-<TextView android:id="@+id/unit_error" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#A32222" android:visibility="gone" android:accessibilityLiveRegion="polite" />
-<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_expiry" android:text="Expiry date (optional)" style="@style/Body" />
-<EditText android:id="@id/ingredient_expiry" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="date" android:maxLength="10" android:hint="YYYY-MM-DD" android:importantForAutofill="no" />
-<TextView android:id="@+id/form_feedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" style="@style/Body" android:visibility="gone" />
-<Button android:id="@+id/save_ingredient" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="Save ingredient" />
-<Button android:id="@+id/cancel_ingredient" style="?android:attr/borderlessButtonStyle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cancel" />
-</LinearLayout></ScrollView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_stock_your_pantry" style="@style/Heading" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/ui_add_the_amount_you_have_at_home_only_the_expiry_date_is_optional" style="@style/Body" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:labelFor="@+id/ingredient_name" android:text="@string/ui_ingredient_name" style="@style/Body" />
+        <EditText android:id="@id/ingredient_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="textCapSentences" android:maxLength="80" android:importantForAutofill="no" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_quantity" android:text="@string/ui_quantity" style="@style/Body" />
+        <EditText android:id="@id/ingredient_quantity" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="numberDecimal" android:maxLength="20" android:importantForAutofill="no" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_unit" android:text="@string/ui_unit" style="@style/Body" />
+        <Spinner android:id="@id/ingredient_unit" android:layout_width="match_parent" android:layout_height="48dp" />
+        <TextView android:id="@+id/unit_error" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#A32222" android:visibility="gone" android:accessibilityLiveRegion="polite" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_expiry" android:text="@string/ui_expiry_date_optional_yyyy_mm_dd" style="@style/Body" />
+        <EditText android:id="@id/ingredient_expiry" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="date" android:maxLength="10" android:importantForAutofill="no" />
+        <TextView android:id="@+id/form_feedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" style="@style/Body" android:visibility="gone" />
+        <Button android:id="@+id/save_ingredient" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="@string/ui_save_ingredient" />
+        <Button android:id="@+id/cancel_ingredient" style="?android:attr/borderlessButtonStyle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_cancel" />
+    </LinearLayout>
+</ScrollView>

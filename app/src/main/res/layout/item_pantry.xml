@@ -1,8 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:orientation="vertical" android:padding="16dp" android:background="@drawable/card_background">
-<TextView android:id="@+id/item_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/ink" />
-<TextView android:id="@+id/item_amount" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" style="@style/Body" />
-<TextView android:id="@+id/item_expiry" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" style="@style/Body" />
-<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-<Button android:id="@+id/edit_item" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Edit" />
-<Button android:id="@+id/delete_item" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Delete" />
-</LinearLayout></LinearLayout>
+    <TextView android:id="@+id/item_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/ink" />
+    <TextView android:id="@+id/item_amount" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" style="@style/Body" />
+    <TextView android:id="@+id/item_expiry" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" style="@style/Body" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <Button android:id="@+id/edit_item" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/ui_edit" />
+        <Button android:id="@+id/delete_item" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/ui_delete" />
+    </LinearLayout>
+</LinearLayout>
