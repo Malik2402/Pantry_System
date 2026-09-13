@@ -8,6 +8,24 @@ import za.co.smartpantry.model.Ingredient;
 import za.co.smartpantry.model.Recipe;
 
 public final class RecipeMatcher {
+    public Ingredient missingOne(Recipe recipe, List<? extends Ingredient> pantry) {
+        if (recipe == null || recipe.ingredients.isEmpty() || pantry == null) return null;
+        Map<String, BigDecimal> available = totals(pantry, false);
+        Map<String, BigDecimal> required = totals(recipe.ingredients, true);
+        if (required == null || required.isEmpty()) return null;
+        Ingredient missing = null;
+        for (Map.Entry<String, BigDecimal> need : required.entrySet()) {
+            BigDecimal shortage = need.getValue().subtract(available.getOrDefault(need.getKey(), BigDecimal.ZERO));
+            if (shortage.signum() <= 0) continue;
+            if (missing != null) return null;
+            int separator = need.getKey().lastIndexOf('|');
+            String category = need.getKey().substring(separator + 1);
+            String unit = category.equals("mass") ? "g" : category.equals("volume") ? "ml" : "item";
+            missing = new Ingredient(need.getKey().substring(0, separator), shortage, unit);
+        }
+        return missing;
+    }
+
     public boolean matches(Recipe recipe, List<? extends Ingredient> pantry) {
         if (recipe == null || recipe.ingredients.isEmpty() || pantry == null) return false;
         Map<String, BigDecimal> available = totals(pantry, false);

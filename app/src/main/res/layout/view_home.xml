@@ -41,4 +41,5 @@
 </LinearLayout><ImageView android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/home_arrow_icon" android:importantForAccessibility="no" />
 </LinearLayout>
 <androidx.appcompat.widget.AppCompatButton android:id="@+id/home_add_ingredient" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="54dp" android:layout_marginTop="16dp" android:background="@drawable/home_green" android:text="@string/home_add_item" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:textAllCaps="false" />
+<androidx.appcompat.widget.AppCompatButton android:id="@+id/home_almost_there" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="54dp" android:layout_marginTop="12dp" android:background="@drawable/home_sage" android:text="@string/almost_title" android:textColor="@color/forest" android:textSize="18sp" android:textAllCaps="false" />
 </LinearLayout></ScrollView>
