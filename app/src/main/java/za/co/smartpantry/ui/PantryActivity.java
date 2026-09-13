@@ -52,6 +52,8 @@ public class PantryActivity extends BaseActivity implements PantryAdapter.Action
                 startActivityForResult(new Intent(this, IngredientFormActivity.class), 1));
         findViewById(R.id.home_view_all).setOnClickListener(view ->
                 startActivity(new Intent(this, SuggestionsActivity.class)));
+        findViewById(R.id.home_almost_there).setOnClickListener(view ->
+                startActivity(new Intent(this, SuggestionsActivity.class).putExtra("almost_there", true)));
         findViewById(R.id.home_pantry_stat).setOnClickListener(view -> showPantryPanel(true));
         findViewById(R.id.home_expiry_stat).setOnClickListener(view -> showPantryPanel(true));
         homeAdapter = new HomeRecipeAdapter(id -> startActivity(

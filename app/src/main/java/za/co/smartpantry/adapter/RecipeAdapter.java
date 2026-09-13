@@ -14,10 +14,17 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.Holder> {
     public interface Selection { void open(long recipeId); }
     private final List<Recipe> recipes = new ArrayList<>();
     private final Selection selection;
+    private final java.util.Map<Long, String> shortages = new java.util.HashMap<>();
 
     public RecipeAdapter(Selection selection) { this.selection = selection; }
 
     public void submit(List<Recipe> updated) {
+        submit(updated, java.util.Collections.emptyMap());
+    }
+
+    public void submit(List<Recipe> updated, java.util.Map<Long, String> missing) {
+        shortages.clear();
+        shortages.putAll(missing);
         recipes.clear();
         recipes.addAll(updated);
         notifyDataSetChanged();
@@ -30,7 +37,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.Holder> {
     @Override public void onBindViewHolder(Holder holder, int position) {
         Recipe recipe = recipes.get(position);
         holder.name.setText(recipe.name);
-        holder.count.setText(recipe.ingredients.size() + " ingredients · all available");
+        holder.count.setText(shortages.containsKey(recipe.id) ? shortages.get(recipe.id)
+                : recipe.ingredients.size() + " ingredients · all available");
         holder.itemView.findViewById(R.id.open_recipe).setContentDescription("View " + recipe.name);
         holder.itemView.findViewById(R.id.open_recipe).setOnClickListener(view -> selection.open(recipe.id));
     }

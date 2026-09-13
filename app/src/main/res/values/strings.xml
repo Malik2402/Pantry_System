@@ -60,4 +60,11 @@
     <string name="home_expiry_past">%1$s is past its expiry date</string>
     <string name="home_load_error">Could not load your pantry. Reopen this screen to try again.</string>
     <string name="recipe_match_summary">%1$d of %2$d recipes match</string>
+    <string name="almost_title">Almost There</string>
+    <string name="almost_description">One ingredient short. These recipes are separate from ready-to-cook suggestions. Add the missing ingredient or top up its quantity to make them ready.</string>
+    <string name="almost_empty">No recipes are exactly one ingredient short. Add pantry items or check your ready-to-cook suggestions.</string>
+    <string name="almost_summary">%1$d of %2$d recipes are almost there</string>
+    <string name="almost_shortage">Still needed: %1$s — %2$s</string>
+    <string name="almost_back">Back to Almost There</string>
+    <string name="almost_not_ready">More than one ingredient is now missing or insufficient. Check your pantry before cooking.</string>
 </resources>

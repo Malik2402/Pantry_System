@@ -33,4 +33,7 @@ if($LASTEXITCODE -ne 0){throw 'Home screenshot copy failed.'}
 $recipeResult=& $adb -s $Serial shell am instrument -w -e class 'za.co.smartpantry.RecipeUpgradeTest' za.co.smartpantry.test/androidx.test.runner.AndroidJUnitRunner 2>&1
 [IO.File]::WriteAllText((Join-Path $PWD 'docs/evidence/recipe-upgrade-tests.txt'),($recipeResult -join "`n").TrimEnd()+"`n")
 if($LASTEXITCODE -ne 0 -or ($recipeResult -join "`n") -notmatch 'OK \(4 tests\)'){throw 'Recipe upgrade tests failed.'}
-Write-Output 'Verified fifteen device tests, a separate process-reopen test and screenshots.'
+$almostResult=& $adb -s $Serial shell am instrument -w -e class 'za.co.smartpantry.AlmostThereFlowTest' za.co.smartpantry.test/androidx.test.runner.AndroidJUnitRunner 2>&1
+[IO.File]::WriteAllText((Join-Path $PWD 'docs/evidence/almost-there-tests.txt'),($almostResult -join "`n").TrimEnd()+"`n")
+if($LASTEXITCODE -ne 0 -or ($almostResult -join "`n") -notmatch 'OK \(1 test\)'){throw 'Almost There tests failed.'}
+Write-Output 'Verified sixteen device tests, a separate process-reopen test and screenshots.'
