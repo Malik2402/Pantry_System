@@ -1,17 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp" android:background="@drawable/home_sage">
+        <ImageView android:layout_width="32dp" android:layout_height="36dp" android:layout_marginBottom="12dp" android:src="@drawable/home_jar_icon" android:importantForAccessibility="no" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_stock_your_pantry" style="@style/Heading" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/ui_add_the_amount_you_have_at_home_only_the_expiry_date_is_optional" style="@style/Body" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:labelFor="@+id/ingredient_name" android:text="@string/ui_ingredient_name" style="@style/Body" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="16dp" android:padding="16dp" android:background="@drawable/card_background">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="0dp" android:labelFor="@+id/ingredient_name" android:text="@string/ui_ingredient_name" style="@style/Body" />
         <EditText style="@style/PantryField" android:id="@id/ingredient_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="textCapSentences" android:maxLength="80" android:importantForAutofill="no" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_quantity" android:text="@string/ui_quantity" style="@style/Body" />
         <EditText style="@style/PantryField" android:id="@id/ingredient_quantity" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="numberDecimal" android:maxLength="20" android:importantForAutofill="no" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_unit" android:text="@string/ui_unit" style="@style/Body" />
-        <Spinner android:id="@id/ingredient_unit" android:layout_width="match_parent" android:layout_height="48dp" />
+        <Spinner android:layout_marginTop="6dp" android:paddingHorizontal="8dp" android:backgroundTint="@color/forest" android:id="@id/ingredient_unit" android:layout_width="match_parent" android:layout_height="48dp" />
         <TextView android:id="@+id/unit_error" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#A32222" android:visibility="gone" android:accessibilityLiveRegion="polite" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:labelFor="@+id/ingredient_expiry" android:text="@string/ui_expiry_date_optional_yyyy_mm_dd" style="@style/Body" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="16dp" android:padding="16dp" android:background="@drawable/card_background">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="0dp" android:labelFor="@+id/ingredient_expiry" android:text="@string/ui_expiry_date_optional_yyyy_mm_dd" style="@style/Body" />
         <EditText style="@style/PantryField" android:id="@id/ingredient_expiry" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="date" android:maxLength="10" android:importantForAutofill="no" />
+        </LinearLayout>
         <TextView android:id="@+id/form_feedback" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" style="@style/Body" android:visibility="gone" />
         <Button style="@style/PantryButton" android:id="@+id/save_ingredient" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="@string/ui_save_ingredient" />
         <Button style="@style/PantryButton.Text" android:id="@+id/cancel_ingredient" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_cancel" />

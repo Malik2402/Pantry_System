@@ -51,6 +51,8 @@ public class HomeScreenTest {
             onView(withText("Olive oil · 10 ml")).perform(scrollTo(), click());
             onView(withId(R.id.ingredient_quantity)).perform(scrollTo(), replaceText("15"), closeSoftKeyboard());
             onView(withId(R.id.save_ingredient)).perform(scrollTo(), click());
+            onView(withId(R.id.bottom_pantry)).check(matches(isSelected()));
+            onView(withId(R.id.bottom_home)).perform(click());
             onView(withId(R.id.home_search)).perform(scrollTo(), replaceText(""), closeSoftKeyboard());
             onView(withText("Tomato and onion salad")).check(matches(isDisplayed()));
             scenario.recreate();
@@ -93,6 +95,8 @@ public class HomeScreenTest {
             onView(withId(R.id.ingredient_unit)).perform(scrollTo(), click());
             androidx.test.espresso.Espresso.onData(allOf(is(instanceOf(String.class)), is("item"))).perform(click());
             onView(withId(R.id.save_ingredient)).perform(scrollTo(), click());
+            onView(withId(R.id.bottom_pantry)).check(matches(isSelected()));
+            onView(withId(R.id.bottom_home)).perform(click());
             onView(withId(R.id.home_item_count)).check(matches(withText("1")));
             onView(withId(R.id.home_view_all)).perform(scrollTo(), click());
             onView(withId(R.id.recipes_empty)).check(matches(isDisplayed()));

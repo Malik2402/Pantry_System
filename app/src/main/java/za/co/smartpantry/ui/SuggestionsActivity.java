@@ -25,9 +25,10 @@ public class SuggestionsActivity extends BaseActivity {
     @Override protected void onCreate(Bundle state) {
         super.onCreate(state);
         showScreen(R.layout.activity_suggestions, "Suggested recipes");
+        setBackAction(R.string.back_to_home, () -> returnToPantry(false));
         database = new DatabaseHelper(this);
-        adapter = new RecipeAdapter(id -> startActivity(new Intent(this, RecipeDetailActivity.class)
-                .putExtra("recipe_id", id).putExtra("almost_there", almost)));
+        adapter = new RecipeAdapter(id -> startActivityForResult(new Intent(this, RecipeDetailActivity.class)
+                .putExtra("recipe_id", id).putExtra("almost_there", almost), 2));
         RecyclerView list = findViewById(R.id.recipe_list);
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(adapter);

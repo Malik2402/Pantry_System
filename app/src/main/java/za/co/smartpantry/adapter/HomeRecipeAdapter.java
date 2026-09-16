@@ -33,13 +33,8 @@ public final class HomeRecipeAdapter extends RecyclerView.Adapter<HomeRecipeAdap
     @Override public void onBindViewHolder(Holder holder, int position) {
         Recipe recipe = recipes.get(position);
         holder.name.setText(recipe.name);
-        int art = R.drawable.home_food;
-        if (recipe.id == 2 || recipe.id == 13 || recipe.id == 28) art = R.drawable.home_food_eggs;
-        else if (recipe.id == 3 || recipe.id == 25) art = R.drawable.home_food_smoothie;
-        else if (recipe.id == 5 || recipe.id == 12 || recipe.id == 15 || recipe.id == 21 || recipe.id == 22 || recipe.id == 27 || recipe.id == 32) art = R.drawable.home_food_bread;
-        else if (recipe.id == 4 || recipe.id == 7 || recipe.id == 14 || recipe.id == 18 || recipe.id == 19 || recipe.id == 23 || recipe.id == 24 || recipe.id == 30 || recipe.id == 34 || recipe.id == 40)
-            art = R.drawable.home_food_grains;
-        ((android.widget.ImageView) holder.itemView.findViewById(R.id.home_recipe_art)).setImageResource(art);
+        ((android.widget.ImageView) holder.itemView.findViewById(R.id.home_recipe_art))
+                .setImageResource(RecipeArtwork.forRecipe(recipe.id));
         holder.meta.setText(holder.itemView.getContext().getString(
                 R.string.home_recipe_meta, recipe.ingredients.size()));
         holder.itemView.setContentDescription(recipe.name + ". "

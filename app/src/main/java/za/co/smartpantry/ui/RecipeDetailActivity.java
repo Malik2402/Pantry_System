@@ -15,13 +15,25 @@ public class RecipeDetailActivity extends BaseActivity {
     @Override protected void onCreate(Bundle state) {
         super.onCreate(state);
         showScreen(R.layout.activity_recipe_detail, "Recipe detail");
+        setBackAction(R.string.back_to_home, () -> returnToPantry(false));
+        findViewById(R.id.detail_art).setClipToOutline(true);
         database = new DatabaseHelper(this);
         if (getIntent().getBooleanExtra("almost_there", false))
             ((TextView) findViewById(R.id.detail_back)).setText(R.string.almost_back);
-        findViewById(R.id.detail_back).setOnClickListener(view ->
-                startActivity(new Intent(this, SuggestionsActivity.class)
-                        .putExtra("almost_there", getIntent().getBooleanExtra("almost_there", false))
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)));
+        findViewById(R.id.detail_back).setOnClickListener(view -> returnToSuggestions());
+    }
+
+    private void returnToSuggestions() {
+        if (getCallingActivity() != null) {
+            if (!getCallingActivity().getClassName().equals(SuggestionsActivity.class.getName()))
+                setResult(RESULT_OK, new Intent().putExtra("open_suggestions", true)
+                        .putExtra("almost_there", getIntent().getBooleanExtra("almost_there", false)));
+            finish();
+        } else {
+            startActivity(new Intent(this, SuggestionsActivity.class)
+                    .putExtra("almost_there", getIntent().getBooleanExtra("almost_there", false)));
+            finish();
+        }
     }
 
     @Override protected void onResume() {
@@ -29,10 +41,13 @@ public class RecipeDetailActivity extends BaseActivity {
         try {
             Recipe recipe = database.getRecipe(getIntent().getLongExtra("recipe_id", -1));
             if (recipe == null) {
+                findViewById(R.id.detail_art).setVisibility(android.view.View.GONE);
                 ((TextView) findViewById(R.id.detail_name)).setText("Recipe not found");
                 ((TextView) findViewById(R.id.detail_steps)).setText("Return to suggestions and choose another recipe.");
                 return;
             }
+            ((android.widget.ImageView) findViewById(R.id.detail_art))
+                    .setImageResource(za.co.smartpantry.adapter.RecipeArtwork.forRecipe(recipe.id));
             ((TextView) findViewById(R.id.detail_name)).setText(recipe.name);
             if (getIntent().getBooleanExtra("almost_there", false)) {
                 za.co.smartpantry.matching.RecipeMatcher matcher = new za.co.smartpantry.matching.RecipeMatcher();

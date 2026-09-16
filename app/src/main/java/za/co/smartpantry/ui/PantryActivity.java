@@ -51,13 +51,13 @@ public class PantryActivity extends BaseActivity implements PantryAdapter.Action
         findViewById(R.id.home_add_ingredient).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, IngredientFormActivity.class), 1));
         findViewById(R.id.home_view_all).setOnClickListener(view ->
-                startActivity(new Intent(this, SuggestionsActivity.class)));
+                startActivityForResult(new Intent(this, SuggestionsActivity.class), 2));
         findViewById(R.id.home_almost_there).setOnClickListener(view ->
-                startActivity(new Intent(this, SuggestionsActivity.class).putExtra("almost_there", true)));
+                startActivityForResult(new Intent(this, SuggestionsActivity.class).putExtra("almost_there", true), 2));
         findViewById(R.id.home_pantry_stat).setOnClickListener(view -> showPantryPanel(true));
         findViewById(R.id.home_expiry_stat).setOnClickListener(view -> showPantryPanel(true));
-        homeAdapter = new HomeRecipeAdapter(id -> startActivity(
-                new Intent(this, RecipeDetailActivity.class).putExtra("recipe_id", id)));
+        homeAdapter = new HomeRecipeAdapter(id -> startActivityForResult(
+                new Intent(this, RecipeDetailActivity.class).putExtra("recipe_id", id), 2));
         androidx.recyclerview.widget.RecyclerView recipes = findViewById(R.id.home_recipe_list);
         recipes.setLayoutManager(new LinearLayoutManager(this));
         recipes.setAdapter(homeAdapter);
@@ -221,6 +221,13 @@ public class PantryActivity extends BaseActivity implements PantryAdapter.Action
 
     @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 2) {
+            showPantryPanel(false);
+            if (data != null && data.getBooleanExtra("open_suggestions", false))
+                startActivityForResult(new Intent(this, SuggestionsActivity.class)
+                        .putExtra("almost_there", data.getBooleanExtra("almost_there", false)), 2);
+        }
+        if (requestCode == 1) showPantryPanel(true);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null)
             feedback(data.getStringExtra("feedback"));
     }

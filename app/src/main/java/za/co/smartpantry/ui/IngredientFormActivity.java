@@ -28,6 +28,7 @@ public class IngredientFormActivity extends BaseActivity {
         super.onCreate(state);
         recordId = getIntent().getLongExtra("pantry_id", -1);
         showScreen(R.layout.activity_ingredient_form, recordId == -1 ? "Add ingredient" : "Edit ingredient");
+        setBackAction(R.string.back_to_pantry, this::leaveForm);
         database = new DatabaseHelper(this);
         name = findViewById(R.id.ingredient_name);
         quantity = findViewById(R.id.ingredient_quantity);
@@ -39,9 +40,14 @@ public class IngredientFormActivity extends BaseActivity {
         ArrayAdapter<String> units = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, choices);
         units.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         unit.setAdapter(units);
-        findViewById(R.id.cancel_ingredient).setOnClickListener(view -> finish());
+        findViewById(R.id.cancel_ingredient).setOnClickListener(view -> leaveForm());
         findViewById(R.id.save_ingredient).setOnClickListener(view -> save());
         if (state == null && recordId != -1) loadRecord();
+    }
+
+    private void leaveForm() {
+        if (getCallingActivity() == null) returnToPantry(true);
+        else finish();
     }
 
     private void loadRecord() {
@@ -93,7 +99,7 @@ public class IngredientFormActivity extends BaseActivity {
             }
             setResult(RESULT_OK, new Intent().putExtra("feedback",
                     recordId == -1 ? "Ingredient added." : "Ingredient updated."));
-            finish();
+            leaveForm();
         } catch (SQLException | IllegalArgumentException exception) {
             feedback("Could not save this ingredient. Please check the values and try again.");
         }

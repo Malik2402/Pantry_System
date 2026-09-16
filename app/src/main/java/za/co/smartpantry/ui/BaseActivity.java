@@ -41,6 +41,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            getOnBackPressedDispatcher().onBackPressed();
+            return true;
+        }
         Class<?> target;
         if (item.getItemId() == R.id.nav_home) { openPantry(false); return true; }
         else if (item.getItemId() == R.id.nav_pantry) { openPantry(true); return true; }
@@ -51,8 +55,36 @@ public abstract class BaseActivity extends AppCompatActivity {
         return true;
     }
 
+    protected void setBackAction(int description, Runnable action) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription(description);
+        getOnBackPressedDispatcher().addCallback(this, new androidx.activity.OnBackPressedCallback(true) {
+            @Override public void handleOnBackPressed() { action.run(); }
+        });
+    }
+
+    protected void returnToPantry(boolean list) {
+        if (getCallingActivity() != null && !list) {
+            setResult(RESULT_OK, new Intent().putExtra("return_home", true));
+            finish();
+            return;
+        }
+        startActivity(new Intent(this, PantryActivity.class).putExtra("show_pantry", list)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+        finish();
+    }
+
+    @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (!(this instanceof PantryActivity) && requestCode == 2 && resultCode == RESULT_OK
+                && data != null && data.getBooleanExtra("return_home", false)) returnToPantry(false);
+    }
+
     private void openDestination(Class<?> target) {
-        if (!getClass().equals(target)) startActivity(new Intent(this, target)
+        if (getClass().equals(target)) return;
+        if (target == SuggestionsActivity.class)
+            startActivityForResult(new Intent(this, target), 2);
+        else startActivity(new Intent(this, target)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
     }
 

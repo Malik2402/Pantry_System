@@ -37,6 +37,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.Holder> {
     @Override public void onBindViewHolder(Holder holder, int position) {
         Recipe recipe = recipes.get(position);
         holder.name.setText(recipe.name);
+        ((android.widget.ImageView) holder.itemView.findViewById(R.id.recipe_art))
+                .setImageResource(RecipeArtwork.forRecipe(recipe.id));
+        holder.count.setBackgroundResource(shortages.containsKey(recipe.id)
+                ? R.drawable.home_peach : R.drawable.home_sage);
         holder.count.setText(shortages.containsKey(recipe.id) ? shortages.get(recipe.id)
                 : recipe.ingredients.size() + " ingredients · all available");
         holder.itemView.findViewById(R.id.open_recipe).setContentDescription("View " + recipe.name);
@@ -50,6 +54,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.Holder> {
         final TextView count;
         Holder(View view) {
             super(view);
+            view.findViewById(R.id.recipe_art).setClipToOutline(true);
             name = view.findViewById(R.id.recipe_name);
             count = view.findViewById(R.id.recipe_count);
         }

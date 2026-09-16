@@ -66,4 +66,6 @@
     <string name="almost_shortage">Still needed: %1$s — %2$s</string>
     <string name="almost_back">Back to Almost There</string>
     <string name="almost_not_ready">More than one ingredient is now missing or insufficient. Check your pantry before cooking.</string>
+    <string name="back_to_pantry">Back to My Pantry</string>
+    <string name="back_to_home">Back to Home</string>
 </resources>
