@@ -7,6 +7,6 @@
         <TextView android:id="@+id/detail_ingredients" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:lineSpacingExtra="6dp" style="@style/Body" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/ui_method" android:textSize="20sp" android:textStyle="bold" />
         <TextView android:id="@+id/detail_steps" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:lineSpacingExtra="8dp" style="@style/Body" />
-        <Button android:id="@+id/detail_back" style="?android:attr/borderlessButtonStyle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/ui_back_to_suggestions" />
+        <Button style="@style/PantryButton.Secondary" android:id="@+id/detail_back" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/ui_back_to_suggestions" />
     </LinearLayout>
 </ScrollView>

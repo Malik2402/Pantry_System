@@ -1,6 +1,13 @@
 <resources>
-    <color name="forest">#245B43</color>
-    <color name="cream">#F7F7F0</color>
-    <color name="ink">#202D26</color>
-    <color name="muted">#526258</color>
+    <!-- Pantry colours -->
+    <color name="forest">#182B49</color>
+    <color name="cream">#F5F7FB</color>
+    <color name="ink">#192435</color>
+    <color name="muted">#536176</color>
+    <color name="accent_surface">#E3EBF6</color>
+    <color name="outline">#CCD5E2</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="soft_outline">#E0E6EF</color>
+    <color name="danger">#A32222</color>
+    <color name="logo_background">#01A79D</color>
 </resources>

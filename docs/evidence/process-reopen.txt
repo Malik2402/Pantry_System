@@ -1,0 +1,8 @@
+App was force-stopped before this separate instrumentation run.
+Verified at 2026-09-06T01:07:27.3172283+02:00
+
+za.co.smartpantry.AppFlowTest:.
+
+Time: 6.423
+
+OK (1 test)

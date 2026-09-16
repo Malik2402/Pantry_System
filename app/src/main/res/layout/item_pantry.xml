@@ -4,7 +4,7 @@
     <TextView android:id="@+id/item_amount" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" style="@style/Body" />
     <TextView android:id="@+id/item_expiry" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" style="@style/Body" />
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <Button android:id="@+id/edit_item" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/ui_edit" />
-        <Button android:id="@+id/delete_item" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/ui_delete" />
+        <Button style="@style/PantryButton.Text" android:id="@+id/edit_item" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/ui_edit" />
+        <Button style="@style/PantryButton.Delete" android:id="@+id/delete_item" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/ui_delete" />
     </LinearLayout>
 </LinearLayout>

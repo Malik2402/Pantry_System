@@ -53,6 +53,7 @@ public final class HomeRecipeAdapter extends RecyclerView.Adapter<HomeRecipeAdap
         final TextView name, meta;
         Holder(View view) {
             super(view);
+            view.findViewById(R.id.home_recipe_art).setClipToOutline(true);
             name = view.findViewById(R.id.home_recipe_name);
             meta = view.findViewById(R.id.home_recipe_meta);
         }

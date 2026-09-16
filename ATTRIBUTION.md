@@ -1,7 +1,5 @@
-# Logo attribution
+# App artwork
 
-Recipe icon created by DinosoftLabs — Flaticon.
+The current chef-hat and cutlery logo is the image supplied by the user as `1.jpeg`. The original JPEG is included unchanged as `chef_logo.jpg`. No creator or licence information was supplied with this image.
 
-Source: https://www.flaticon.com/free-icon/recipe_1869042
-Original PNG: https://cdn-icons-png.flaticon.com/512/1869/1869042.png
-Used under the Flaticon free licence with attribution. The original image is unchanged.
+The previous recipe-book logo is no longer included in this version.
