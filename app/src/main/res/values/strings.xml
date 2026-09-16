@@ -49,7 +49,7 @@
     <string name="home_all_ingredients">All ingredients in pantry</string>
     <string name="home_use_soon">Use it soon</string>
     <string name="home_check_expiry">Check expiry</string>
-    <string name="home_add_item">+   Add pantry item</string>
+    <string name="home_add_item">Add pantry item</string>
     <string name="home_search_empty">No ready-to-cook recipes match your search.</string>
     <string name="home_pantry_results_title">In your pantry</string>
     <string name="home_pantry_search_empty">No pantry items match your search.</string>
