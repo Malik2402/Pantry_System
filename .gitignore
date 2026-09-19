@@ -21,3 +21,10 @@ secrets*
 *.zip
 tools/local/
 submission/
+
+# Local assignment planning, evidence and helper files
+/docs/
+/Image_Checklist.txt
+/RECIPE_GUIDE.md
+/tools/Checkpoint.ps1
+/tools/Verify-Device.ps1

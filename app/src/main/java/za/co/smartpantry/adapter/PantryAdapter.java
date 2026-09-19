@@ -36,6 +36,8 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.Holder> {
     @Override public void onBindViewHolder(Holder holder, int position) {
         PantryItem item = items.get(position);
         holder.name.setText(item.name);
+        ((android.widget.ImageView) holder.itemView.findViewById(R.id.item_art))
+                .setImageResource(IngredientArtwork.forName(item.name));
         holder.amount.setText(item.amountLabel());
         holder.expiry.setText(item.expiry == null ? "No expiry date" : "Expiry: " + item.expiry);
         if (expiryIndicators && item.expiry != null) {
@@ -58,6 +60,7 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.Holder> {
         final TextView expiry;
         Holder(View view) {
             super(view);
+            view.findViewById(R.id.item_art).setClipToOutline(true);
             name = view.findViewById(R.id.item_name);
             amount = view.findViewById(R.id.item_amount);
             expiry = view.findViewById(R.id.item_expiry);

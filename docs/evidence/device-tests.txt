@@ -1,8 +1,0 @@
-
-za.co.smartpantry.AppFlowTest:....
-za.co.smartpantry.DatabaseTest:....
-za.co.smartpantry.PreferencesTest:.
-
-Time: 70.849
-
-OK (9 tests)
