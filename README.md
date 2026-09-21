@@ -1,12 +1,12 @@
 # Smart Pantry Manager
 
-A Java Android application that tracks household ingredients and suggests only recipes whose complete quantity requirements are met.
+A Java Android application that tracks what ingredients you have lying around and suggests recipes whose entire quantity requirements you have available․
 
-Preshant Ramdhani · 402410438
-Mobile App Development 700 · 5 September 2026
+Preshant Ramdhani · 402410438 Mobile App Development 700 · 5 September 2026
 
-Public repository: https://github.com/Malik2402/Pantry_System
 
-Development is in progress. SQLiteOpenHelper will provide local persistent storage. The project uses Java 17, XML, AndroidX, Android SDK 36 and a minimum SDK of 26.
+Development is active․ SQLiteOpenHelper will provide local persistent storage․ Written in Java 17‚ XML‚ AndroidX and Android SDK 36‚ the project requires SDK 26 to operate․
 
-Open this folder in Android Studio and select JDK 17 for Gradle. Allow SDK/dependency synchronization. Build with `gradlew.bat assembleDebug` on Windows or `./gradlew assembleDebug` elsewhere. AndroidX brings a transitive Kotlin runtime; its versions are aligned with a BOM. Application and test source are Java only.
+Open the folder in Android Studio‚ set Gradle to use JDK 17‚ allow synchronization of SDK/dependencies‚ and run gradlew․bat assembleDebug (Windows) or ․/gradlew assembleDebug elsewhere to build․
+
+#Java only for application!!!
